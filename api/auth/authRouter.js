@@ -44,3 +44,18 @@ router.post('/login', (req, res) => {
         })
         .catch(error => res.status(500).json(error));
 })
+
+
+function signToken(user) {
+    const payload = {
+        id: user.id
+    }
+
+    const secret = process.env.JWT_SECRET || 'It is secret, it is safe.';
+
+    const options = { expiresIn: '1d' };
+
+    return jwt.sign(payload, secret, options);
+}
+
+module.exports = router;
