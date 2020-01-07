@@ -2,21 +2,21 @@ const bcrypt = require('bcryptjs');
 const express = require('express');
 
 const { Users } = require('../../data/helpers');
-const signToken = require('../middleware');
+const signToken = require('../middleware/signToken');
 
 const router = express.Router();
 
 router.post('/register', (req, res) => {
-    const userInfo = req.body;
+    const userAccount = req.body;
 
     // hash the password
-    const hash = bcrypt.hashSync(userInfo.password, 14);
+    const hash = bcrypt.hashSync(userAccount.password, 14);
 
     // override the plain text password with the hash
-    userInfo.password = hash;
+    userAccount.password = hash;
 
     Users
-        .add(userInfo)
+        .add(userAccount)
         .then(user => {
             delete user.password;
             const token = signToken(user);
@@ -26,7 +26,7 @@ router.post('/register', (req, res) => {
             }
             res.status(201).json(response);
         })
-        .catch(error => res.status(500).json(error));
+        .catch(error => res.status(500).json(error.message));
 });
 
 router.post('/login', (req, res) => {
@@ -36,19 +36,17 @@ router.post('/login', (req, res) => {
         .findBy({ email })
         .first()
         .then(user => {
+            // check that passwords match
             if (user && bcrypt.compareSync(password, user.password)) {
                 delete user.password;
                 const token = signToken(user);
-                const response = {
-                    user,
-                    token
-                }
-                res.status(200).json(response);
+                res.status(200).json({ message: `Welcome ${user.first_name}!`, token });
             } else {
-                res.status(404).json({ message: "Username or password is invalid." });
+                // return 401 if the password and username are invalid
+                res.status(401).json({ message: "Username or password is invalid" });
             }
         })
-        .catch(error => res.status(500).json(error));
+        .catch(error => res.status(500).json(error.message));
 })
 
 module.exports = router;

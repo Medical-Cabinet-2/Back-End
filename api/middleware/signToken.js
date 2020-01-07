@@ -1,11 +1,12 @@
 const jwt = require('jsonwebtoken');
-const secret = require('./secret');
 
 module.exports = (user) => {
 
     const payload = {
         id: user.id
     };
+
+    const secret = process.env.JWT_SECRET || "It is secret";
 
     const options = {
         expiresIn: '1d',
