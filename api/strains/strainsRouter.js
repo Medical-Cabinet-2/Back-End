@@ -5,7 +5,7 @@ router.get('/', (req, res) => {
     Strains
         .find()
         .then(strains => res.status(200).json(strains))
-        .catch(error => res.status(500).json({ error }));
+        .catch(error => res.status(500).json(error.message));
 });
 
 module.exports = router;
