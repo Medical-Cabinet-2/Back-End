@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
         return res
             .status(400)
             .json({ message: "No authorization header attached" });
-    } else if (authorization) {
+    } else {
 
         jwt.verify(authorization, secret, (error, decodedToken) => {
             if (error) {
@@ -21,10 +21,6 @@ module.exports = (req, res, next) => {
             }
         });
 
-    } else {
-        res
-            .status(401)
-            .json({ message: "Please login and try again" });
-    }
+    };
 
 };

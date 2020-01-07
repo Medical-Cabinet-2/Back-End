@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const express = require('express');
 
 const { Users } = require('../../data/helpers');
-const signToken = require('../middleware/signToken');
+const { signToken } = require('../middleware');
 
 const router = express.Router();
 

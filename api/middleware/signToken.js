@@ -6,7 +6,7 @@ module.exports = (user) => {
         id: user.id
     };
 
-    const secret = process.env.JWT_SECRET || "It is secret";
+    const secret = process.env.JWT_SECRET;
 
     const options = {
         expiresIn: '1d',
