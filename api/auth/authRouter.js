@@ -20,13 +20,13 @@ router.post('/register', (req, res) => {
         .then(user => {
             delete user.password;
             const token = signToken(user);
-            const response = {
+            const credentials = {
                 user,
                 token
             }
-            res.status(201).json(response);
+            res.status(201).json(credentials);
         })
-        .catch(error => res.status(500).json(error.message));
+        .catch(error => res.status(500).json(error));
 });
 
 router.post('/login', (req, res) => {
@@ -40,13 +40,17 @@ router.post('/login', (req, res) => {
             if (user && bcrypt.compareSync(password, user.password)) {
                 delete user.password;
                 const token = signToken(user);
-                res.status(200).json({ message: `Welcome ${user.first_name}!`, token });
+                const credentials = {
+                    user,
+                    token
+                }
+                res.status(200).json({ message: `Welcome ${user.first_name}!`, credentials });
             } else {
                 // return 401 if the password and username are invalid
                 res.status(401).json({ message: "Username or password is invalid" });
             }
         })
-        .catch(error => res.status(500).json(error.message));
+        .catch(error => res.status(500).json(error));
 })
 
 module.exports = router;

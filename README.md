@@ -16,8 +16,8 @@ Returns an object with user info and a JSON web token.
 Input:
 ```javascript
 {
-  email: "example@email.com", // string (required) [ must be in proper email format ]
-  password: "abc123!", // string (required) [ min. 8 total characters | min. 1 special character | min. 1 digit ]
+  email: "example@email.com", // string (required)
+  password: "abc123!", // string (required)
   first_name: "firstname", // string (required)
   last_name: "lastname" // string (required)
 }
@@ -54,12 +54,15 @@ Input:
 Output:
 ```javascript
 {
-  user: {
+  message: "Welcome ${user.first_name}!",
+  credentials: {
+    user: {
       id: 1,
       email: "example@email.com",
       first_name: "firstname",
       last_name: "lastname"
-  },
-  token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sZV9pZCI6MSwiaWF0IjoxNTc3MTY1MDY3LCJleHAiOjE1NzcxNjg2Njd9.pg1rqfKM5BxyLssMVyL8xrCW9BjKZhmqIrODlZp16Kk"
+    },
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTc4NDE4NzY1LCJleHAiOjE1Nzg1MDUxNjV9.VIoyWSOLYiNKJR4araMaZxzAX-10fJzTsAu1NL-R0UE"
+  }
 }
 ```
