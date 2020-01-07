@@ -32,7 +32,7 @@ router.post('/login', (req, res) => {
         .findBy({ email })
         .first()
         .then(user => {
-            if (user && bcrypt.compareSynce(password, user.password)) {
+            if (user && bcrypt.compareSync(password, user.password)) {
                 delete user.password;
                 const token = signToken(user);
                 const response = {

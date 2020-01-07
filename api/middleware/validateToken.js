@@ -5,15 +5,26 @@ module.exports = (req, res, next) => {
     const secret = process.env.JWT_SECRET;
 
     if (!authorization) {
-        return res.status(400).json({ message: 'no authorization header attached' });
+        return res
+            .status(400)
+            .json({ message: "No authorization header attached" });
+    } else if (authorization) {
+
+        jwt.verify(authorization, secret, (error, decodedToken) => {
+            if (error) {
+                res
+                    .status(401)
+                    .json({ message: "Invalid token" });
+            } else {
+                req.token = decodedToken;
+                next();
+            }
+        });
+
+    } else {
+        res
+            .status(401)
+            .json({ message: "Please login and try again" });
     }
 
-    jwt.verify(authorization, secret, (error, decoded) => {
-        if (error) {
-            res.status(404).json({ error });
-        } else {
-            req.decoded_token = decoded;
-            next();
-        }
-    })
-}
+};
