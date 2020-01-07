@@ -2,7 +2,7 @@
 
 **Table of Contents:**
 ---------
-[Authentication Routes](#Authentication-Routes)
+[Authentication Routes](#Authentication-Routes) | [General Routes](#General-Routes)
 
 ## **Authentication Routes**
 
@@ -66,3 +66,33 @@ Output:
   }
 }
 ```
+
+## **General Routes**
+[back to top](#api-user-guide)
+
+### Strains
+#### GET */api/strains*
+
+Returns an array of all available strains
+
+Request:
+```javascript
+// No input needed
+```
+Response:
+```javascript
+[
+  {
+      id: 1,
+      strain: "Ak-47"
+  },
+  {
+      id: 2,
+      name: "Afghani"
+  },
+  {
+      id: 3,
+      name: "Alohaberry"
+  },
+  ...
+]
