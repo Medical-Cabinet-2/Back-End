@@ -26,7 +26,7 @@ router.post('/register', (req, res) => {
             }
             res.status(201).json(credentials);
         })
-        .catch(error => res.status(500).json(error));
+        .catch(error => res.status(500).json(error.message));
 });
 
 router.post('/login', (req, res) => {
@@ -50,7 +50,7 @@ router.post('/login', (req, res) => {
                 res.status(401).json({ message: "Username or password is invalid" });
             }
         })
-        .catch(error => res.status(500).json(error));
+        .catch(error => res.status(500).json(error.message));
 })
 
 module.exports = router;
