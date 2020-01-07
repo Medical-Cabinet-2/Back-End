@@ -1,14 +1,18 @@
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const express = require('express');
 
 const { Users } = require('../../data/helpers');
+const signToken = require('../middleware');
 
 const router = express.Router();
 
 router.post('/register', (req, res) => {
     const userInfo = req.body;
-    const hash = bcrypt.hashSync(userInfo.password, 12);
+
+    // hash the password
+    const hash = bcrypt.hashSync(userInfo.password, 14);
+
+    // override the plain text password with the hash
     userInfo.password = hash;
 
     Users
@@ -26,7 +30,7 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    const { email, password } = req.body;
+    let { email, password } = req.body;
 
     Users
         .findBy({ email })
@@ -46,18 +50,5 @@ router.post('/login', (req, res) => {
         })
         .catch(error => res.status(500).json(error));
 })
-
-
-function signToken(user) {
-    const payload = {
-        id: user.id
-    }
-
-    const secret = process.env.JWT_SECRET || 'It is secret, it is safe.';
-
-    const options = { expiresIn: '1d' };
-
-    return jwt.sign(payload, secret, options);
-}
 
 module.exports = router;

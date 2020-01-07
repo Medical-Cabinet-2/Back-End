@@ -1,10 +1,10 @@
 # **API User Guide**
 
-**Table of Contents:**|
+**Table of Contents:**
 ---------
 [Authentication Routes](#Authentication-Routes)
 
-### **Authentication Routes**
+## **Authentication Routes**
 
 ###  **User Registration**:
 

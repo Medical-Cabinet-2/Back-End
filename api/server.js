@@ -6,7 +6,6 @@ const authRouter = require('./auth/authRouter');
 const usersRouter = require('./user/userRouter');
 const { validateToken } = require('./middleware/');
 
-
 const server = express();
 
 server.use(helmet());
