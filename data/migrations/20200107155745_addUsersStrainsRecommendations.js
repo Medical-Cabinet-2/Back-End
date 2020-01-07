@@ -29,28 +29,28 @@ exports.up = function (knex) {
             tbl.increments('id');
 
             tbl.datetime('created_at')
-                .defaultTo(Date.now())
+                .defaultTo(new Date())
                 .notNullable();
 
             tbl.datetime('updated_at')
-                .defaultTo(Date.now())
+                .defaultTo(new Date())
                 .notNullable();
 
             tbl.integer('user_id')
                 .unsigned()
+                .notNullable()
                 .references('id')
                 .inTable('users')
                 .onUpdate('CASCADE')
-                .onDelete('CASCADE')
-                .notNullable();
+                .onDelete('CASCADE');
 
             tbl.integer('strain_id')
                 .unsigned()
+                .notNullable()
                 .references('id')
                 .inTable('strains')
                 .onUpdate('CASCADE')
-                .onDelete('RESTRICT')
-                .notNullable();
+                .onDelete('RESTRICT');
         })
 };
 
