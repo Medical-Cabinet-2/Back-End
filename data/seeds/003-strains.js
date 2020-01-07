@@ -20,6 +20,9 @@ exports.seed = knex => {
       { strain: 'Electric Kool-Aid' },
       { strain: 'Flaming Cookies' },
       { strain: 'Golden Nugget' },
-      { strain: 'Head Cheese' }
+      { strain: 'Head Cheese' },
+      { strain: 'Lotion Potion ' },
+      { strain: 'Snack Attack' },
+      { strain: 'Rick Roll' }
     ])
 }
