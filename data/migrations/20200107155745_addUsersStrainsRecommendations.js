@@ -29,11 +29,11 @@ exports.up = function (knex) {
             tbl.increments('id');
 
             tbl.datetime('created_at')
-                .defaultTo(new Date)
+                .defaultTo(Date.now())
                 .notNullable();
 
             tbl.datetime('updated_at')
-                .defaultTo(new Date)
+                .defaultTo(Date.now())
                 .notNullable();
 
             tbl.integer('user_id')
