@@ -73,12 +73,12 @@ Output:
 }
 ```
 
-### **User Recommendations**
+### **User Recommendation**
 [back to top](#api-user-guide)
 
-URL: https://node-server-med-cabinet.herokuapp.com/api/user/:id/recommendations
+URL: https://node-server-med-cabinet.herokuapp.com/api/user/:id/recommendation
 
-#### GET */api/user/:id/recommendations*
+#### GET */api/user/:id/recommendation*
 
 Returns an array of user recommended strains and the user id.
 
@@ -106,10 +106,10 @@ Output:
 ]
 ```
 
-#### POST */api/user/:id/recommendations*
+#### POST */api/user/:id/recommendation*
 
-Adds strain to user's recommendations.
-Returns id (in relation to the amount of strain's already recommended to user).
+Adds a strain to the user's recommendations.
+Returns an id (in relation to the amount of strain's already recommended to user).
 
 Input:
 ```javascript
@@ -127,6 +127,23 @@ Output:
 ]
 ```
 
+#### DELETE */api/user/:id/recommendation/:id*
+
+Removes recommended strain by strain id.
+
+Request:
+```
+/api/user/1/recommendation/1
+```
+
+Output:
+```javascript
+{
+  message: "Recommendation removed"
+}
+```
+
+
 ## **General Routes**
 [back to top](#api-user-guide)
 
@@ -136,7 +153,7 @@ URL: https://node-server-med-cabinet.herokuapp.com/api/strains
 
 #### GET */api/strains*
 
-Returns an array of all available strains
+Returns an array of all strains in the database
 
 Request:
 ```javascript
@@ -163,7 +180,7 @@ Response:
 
 #### POST */api/strains*
 
-Creates a new strain
+Creates a new strain in the database
 
 Request:
 ```javascript
