@@ -9,8 +9,6 @@
 
 ###  **User Registration**:
 
-URL: https://node-server-med-cabinet.herokuapp.com/api/auth/register
-
 #### POST */api/auth/register*
 
 Creates a new user account.
@@ -41,8 +39,6 @@ Output:
 
 ### **User Login**
 [back to top](#api-user-guide)
-
-URL: https://node-server-med-cabinet.herokuapp.com/api/auth/login
 
 #### POST */api/auth/login*
 
