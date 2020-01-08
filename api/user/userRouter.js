@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { Users, Recommendations } = require('../../data/helpers');
+const { Users, Recommendations, Strains } = require('../../data/helpers');
 
 // GET users
 router.get('/', (req, res) => {
@@ -74,12 +74,12 @@ router.get('/:id/recommendation', (req, res) => {
 
 // POST user recommendations
 router.post('/:id/recommendation', (req, res) => {
-    const recommendation = { user_id: parseInt(req.params.id), ...req.body }
-
-    Recommendations
-        .add(recommendation)
-        .then(recommendation => {
-            res.status(201).json(recommendation);
+    const recommendations = { user_id: parseInt(req.params.id), ...req.body }
+    return Recommendations
+        .add(recommendations)
+        .then(async () => {
+            const strain = await Strains.findBy({ id: recommendations.strain_id }).first()
+            res.status(201).json({ message: `${strain.strain} added`, recommendations });
         })
         .catch(error => {
             // log error to server

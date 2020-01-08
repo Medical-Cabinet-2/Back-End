@@ -107,6 +107,11 @@ Response:
 Adds a strain to the user's recommendations.
 Returns an id (in relation to the amount of strain's already recommended to user).
 
+Request:
+```
+/api/user/1/recommendation
+```
+
 Input:
 ```javascript
 {
@@ -116,11 +121,13 @@ Input:
 
 Output:
 ```javascript
-[
-  {
-    4
+{
+  "message": "Blueberry Dream added",
+  "recommendations": {
+    "user_id": 1,
+    "strain_id": 7
   }
-]
+}
 ```
 
 #### DELETE */api/user/:id/recommendation/:id*

@@ -1,7 +1,7 @@
 const db = require('../../dbConfig');
 
-async function add(recommendation) {
-    return await db('recommendations').insert(recommendation).returning('*');
+function add(recommendation) {
+    return db('recommendations').insert(recommendation).returning('*');
 }
 
 function find() {
