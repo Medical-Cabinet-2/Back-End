@@ -73,10 +73,64 @@ Output:
 }
 ```
 
+### **User Recommendations**
+[back to top](#api-user-guide)
+
+URL: https://node-server-med-cabinet.herokuapp.com/api/user/:id/recommendations
+
+#### GET */api/user/:id/recommendations*
+
+Returns an array of user recommended strains and the user id.
+
+Request:
+```javascript
+// No input needed
+```
+
+Output:
+```javascript
+[
+  {
+    "user_id": 1,
+    "strain_id": 7
+  },
+  {
+    "user_id": 1,
+    "strain_id": 8
+  },
+  {
+    "user_id": 1,
+    "strain_id": 9
+  },
+  ...
+]
+```
+
+#### POST */api/user/:id/recommendations*
+
+Adds strain to user's recommendations.
+Returns id (in relation to the amount of strain's already recommended to user).
+
+Input:
+```javascript
+{
+  strain_id: 7 // integer (required)
+}
+```
+
+Output:
+```javascript
+[
+  {
+    2
+  }
+]
+```
+
 ## **General Routes**
 [back to top](#api-user-guide)
 
-### Strains
+### **Strains**
 
 URL: https://node-server-med-cabinet.herokuapp.com/api/strains
 
@@ -127,3 +181,5 @@ Response:
   }
 ]
 ```
+
+

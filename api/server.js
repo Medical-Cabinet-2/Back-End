@@ -15,7 +15,7 @@ server.use(express.json());
 
 server.use('/api/auth', authRouter);
 server.use('/api/strains', strainsRouter);
-server.use('/api/users', validateToken, usersRouter);
+server.use('/api/user', validateToken, usersRouter);
 
 server.get('/', (req, res) => res.status(200).json({ message: 'API is online' }));
 
