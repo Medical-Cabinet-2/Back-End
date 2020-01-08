@@ -9,7 +9,12 @@ const findBy = property => {
         .where(property)
 }
 
+async function add(strain) {
+    return await db('strains').insert(strain).returning('*');
+}
+
 module.exports = {
     find,
-    findBy
+    findBy,
+    add
 }

@@ -8,4 +8,19 @@ router.get('/', (req, res) => {
         .catch(error => res.status(500).json(error.message));
 });
 
+router.post('/', (req, res) => {
+    Strains
+        .add(req.body)
+        .then(strain => {
+            res.status(201).json(strain);
+        })
+        .catch(error => {
+            // log error to server
+            console.log(error);
+            res.status(500).json({
+                message: 'Error adding the strain', error
+            });
+        });
+});
+
 module.exports = router;
