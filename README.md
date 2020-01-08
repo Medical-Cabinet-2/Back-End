@@ -46,7 +46,7 @@ URL: https://node-server-med-cabinet.herokuapp.com/api/auth/login
 
 #### POST */api/auth/login*
 
-Validates user's credentials.
+Validates user credentials.
 Returns an object with user info and a JSON web token.
 
 Input:
