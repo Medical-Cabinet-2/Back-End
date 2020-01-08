@@ -3,7 +3,7 @@
 
 **Table of Contents:**
 ---------
-[Authentication Routes](#Authentication-Routes) | [Recommendation Routes](#Recommendation-Routes) | [Strain Routes](#Strain-Routes)
+[Authentication Routes](#Authentication-Routes) | [Recommendation Routes](#Recommendation-Routes) | [Strain Routes](#Strain-Routes) | [Helper Routes](#Helper-Router)
 
 ## **Authentication Routes**
 
@@ -153,7 +153,7 @@ URL: https://node-server-med-cabinet.herokuapp.com/api/strains
 
 #### GET */api/strains*
 
-Returns an array of all strains in the database
+Returns an array of all strains in the database.
 
 Request:
 ```javascript
@@ -180,7 +180,7 @@ Response:
 
 #### POST */api/strains*
 
-Creates a new strain in the database
+Creates a new strain in the database.
 
 Request:
 ```javascript
@@ -199,4 +199,48 @@ Response:
 ]
 ```
 
+## **Helper Routes**
+[back to top](#api-user-guide)
 
+#### PUT */api/user/:id*
+
+Updates user account information
+
+Request:
+```
+/api/user/1
+```
+Input:
+```javascript
+{
+  email: "example@email.com" // string (required)
+}
+
+// or
+
+{
+  password: "abc123!"
+}
+
+// or
+
+{
+  first_name: "firstname"
+}
+...
+```
+
+Response:
+```javascript
+{
+  "message": "User has been updated",
+  "user": [
+    {
+      "id": 1,
+      "email": "example@email.com",
+      "password": "abc123!",
+      "first_name": "firstname",
+      "last_name": "lastname"
+    }
+  ]
+```
