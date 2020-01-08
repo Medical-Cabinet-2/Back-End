@@ -171,11 +171,11 @@ Response:
   },
   {
       id: 2,
-      name: "Afghani"
+      strain: "Afghani"
   },
   {
       id: 3,
-      name: "Alohaberry"
+      strain: "Alohaberry"
   },
   ...
 ]
