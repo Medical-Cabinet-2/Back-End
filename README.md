@@ -9,6 +9,8 @@
 
 ###  **User Registration**:
 
+URL: https://node-server-med-cabinet.herokuapp.com/api/auth/register
+
 #### POST */api/auth/register*
 
 Creates a new user account.
@@ -39,6 +41,9 @@ Output:
 
 ### **User Login**
 [back to top](#api-user-guide)
+
+URL: https://node-server-med-cabinet.herokuapp.com/api/auth/login
+
 #### POST */api/auth/login*
 
 Validates user's credentials.
@@ -72,6 +77,9 @@ Output:
 [back to top](#api-user-guide)
 
 ### Strains
+
+URL: https://node-server-med-cabinet.herokuapp.com/api/strains
+
 #### GET */api/strains*
 
 Returns an array of all available strains
@@ -97,3 +105,25 @@ Response:
   },
   ...
 ]
+```
+
+#### POST */api/strains*
+
+Creates a new strain
+
+Request:
+```javascript
+{
+  strain: "Purple Kush" // string (required)
+}
+```
+
+Response:
+```javascript
+[
+  {
+      id: 1,
+      strain: "Purple Kush"
+  }
+]
+```
