@@ -3,7 +3,7 @@
 
 **Table of Contents:**
 ---------
-[Authentication Routes](#Authentication-Routes) | [General Routes](#General-Routes)
+[Authentication Routes](#Authentication-Routes) | [Recommendation Routes](#Recommendation-Routes) | [Strain Routes](#Strain-Routes)
 
 ## **Authentication Routes**
 
@@ -73,6 +73,8 @@ Output:
 }
 ```
 
+## **Recommendation Routes**
+
 ### **User Recommendation**
 [back to top](#api-user-guide)
 
@@ -81,9 +83,8 @@ Output:
 Returns an array of user recommended strains and the user id.
 
 Request:
-```javascript
+```
 /api/user/1/recommendation
-
 ```
 
 Output:
@@ -131,7 +132,7 @@ Output:
 Removes recommended strain by strain id.
 
 Request:
-```javascript
+```
 /api/user/1/recommendation/2
 ```
 
@@ -143,7 +144,7 @@ Output:
 ```
 
 
-## **General Routes**
+## **Strain Routes**
 [back to top](#api-user-guide)
 
 ### **Strains**
