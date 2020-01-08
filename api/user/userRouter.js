@@ -61,18 +61,42 @@ router.delete('/:id', (req, res) => {
 // GET user recommendations
 router.get('/:id/recommendations', (req, res) => {
     Recommendations
-        .find()
-        .then(recommendations => res.status(200).json(recommendations))
+        .findByUserId(req.params.id)
+        .then(recommendations => {
+            if (recommendations.length) {
+                res.status(200).json(recommendations)
+            } else {
+                res.status(404).json({ message: 'No recommendations found' });
+            }
+        })
         .catch(error => res.status(500).json({ message: 'Error getting the recommendations for the user', error }));
 });
 
-// DELETE user recommendation by ID
-router.delete('/:id/recommendation/:id', (req, res) => {
+// POST user recommendations
+router.post('/:id/recommendations', (req, res) => {
+    const recommendation = { user_id: parseInt(req.params.id), ...req.body }
+
     Recommendations
-        .remove(req.params.id)
+        .add(recommendation)
+        .then(recommendation => {
+            res.status(201).json(recommendation);
+        })
+        .catch(error => {
+            // log error to server
+            console.log(error);
+            res.status(500).json({
+                message: 'Error adding the recommendation', error
+            });
+        });
+});
+
+// DELETE user recommendation by ID
+router.delete('/:user_id/recommendations/:strain_id', (req, res) => {
+    Recommendations
+        .remove(req.params.user_id, req.params.strain_id)
         .then(count => {
             if (count > 0) {
-                res.status(200).json({ message: 'There are no recommendations' });
+                res.status(200).json({ message: 'Recommendation removed' });
             } else {
                 res.status(404).json({ message: 'Recommendation could not be found' });
             }

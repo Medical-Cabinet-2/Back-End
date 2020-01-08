@@ -26,7 +26,7 @@ exports.up = function (knex) {
 
         })
         .createTable('recommendations', tbl => {
-            tbl.increments('id');
+            tbl.primary(['strain_id', 'user_id']);
 
             tbl.datetime('created_at')
                 .defaultTo(knex.fn.now())

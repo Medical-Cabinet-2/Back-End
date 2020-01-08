@@ -4,13 +4,23 @@ async function add(recommendation) {
     return await db('recommendations').insert(recommendation).returning('*');
 }
 
-function remove(id) {
+function find() {
+    return db('recommendations').select('user_id', 'strain_id');
+}
+
+function findByUserId(id) {
+    return db('recommendations').select('user_id', 'strain_id').where({ user_id: id });
+}
+
+function remove(user_id, strain_id) {
     return db('recommendations')
         .delete()
-        .where({ id });
+        .where({ user_id, strain_id });
 }
 
 module.exports = {
     add,
+    find,
+    findByUserId,
     remove
 }
