@@ -236,14 +236,14 @@ Input:
 Output:
 ```javascript
 {
-  "message": "User has been updated",
-  "user": [
+  message: "User has been updated",
+  user: [
     {
-      "id": 1,
-      "email": "example@email.com",
-      "password": "abc123!",
-      "first_name": "firstname",
-      "last_name": "lastname"
+      id: 1,
+      email: "example@email.com",
+      password: "abc123!",
+      first_name: "firstname",
+      last_name: "lastname"
     }
   ]
 ```
