@@ -87,16 +87,16 @@ Response:
 ```javascript
 [
   {
-    "user_id": 1,
-    "strain_id": 7
+    user_id: 1,
+    strain_id: 7
   },
   {
-    "user_id": 1,
-    "strain_id": 8
+    user_id: 1,
+    strain_id: 8
   },
   {
-    "user_id": 1,
-    "strain_id": 9
+    user_id: 1,
+    strain_id: 9
   },
   ...
 ]
@@ -122,10 +122,10 @@ Input:
 Output:
 ```javascript
 {
-  "message": "Blueberry Dream added",
-  "recommendations": {
-    "user_id": 1,
-    "strain_id": 7
+  message: "Blueberry Dream added",
+  recommendations: {
+    user_id: 1,
+    strain_id: 7
   }
 }
 ```
