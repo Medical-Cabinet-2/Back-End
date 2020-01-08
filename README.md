@@ -105,7 +105,7 @@ Response:
 #### POST */api/user/:id/recommendation*
 
 Adds a strain to the user's recommendations.
-Returns an id (in relation to the amount of strain's already recommended to user).
+Returns a success message and an object listing the user id and strain id.
 
 Request:
 ```
