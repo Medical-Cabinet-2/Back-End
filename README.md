@@ -3,7 +3,7 @@
 
 **Table of Contents:**
 ---------
-[Authentication Routes](#Authentication-Routes) | [Recommendation Routes](#Recommendation-Routes) | [Strain Routes](#Strain-Routes) | [Helper Routes](#Helper-Router)
+[Authentication Routes](#Authentication-Routes) | [Recommendation Routes](#Recommendation-Routes) | [Strain Routes](#Strain-Routes) | [Helper Routes](#Helper-Routes)
 
 ## **Authentication Routes**
 
