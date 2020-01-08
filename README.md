@@ -23,8 +23,8 @@ Input:
   last_name: "lastname" // string (required)
 }
 ```
-Output:
 
+Output:
 ```javascript
 {
   user: {
@@ -83,7 +83,7 @@ Request:
 /api/user/1/recommendation
 ```
 
-Output:
+Response:
 ```javascript
 [
   {
@@ -132,7 +132,7 @@ Request:
 /api/user/1/recommendation/2
 ```
 
-Output:
+Response:
 ```javascript
 {
   message: "Recommendation removed"
@@ -178,14 +178,14 @@ Response:
 
 Creates a new strain in the database.
 
-Request:
+Input:
 ```javascript
 {
   strain: "Purple Kush" // string (required)
 }
 ```
 
-Response:
+Output:
 ```javascript
 [
   {
@@ -226,7 +226,7 @@ Input:
 ...
 ```
 
-Response:
+Output:
 ```javascript
 {
   "message": "User has been updated",
