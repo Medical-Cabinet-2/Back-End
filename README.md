@@ -1,5 +1,5 @@
 # **API User Guide**
-**BASE URL** https://node-server-med-cabinet.herokuapp.com/
+**BASE URL** https://node-server-med-cabinet.herokuapp.com
 
 **Table of Contents:**
 ---------
