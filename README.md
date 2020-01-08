@@ -76,15 +76,14 @@ Output:
 ### **User Recommendation**
 [back to top](#api-user-guide)
 
-URL: https://node-server-med-cabinet.herokuapp.com/api/user/:id/recommendation
-
 #### GET */api/user/:id/recommendation*
 
 Returns an array of user recommended strains and the user id.
 
 Request:
 ```javascript
-// No input needed
+/api/user/1/recommendation
+
 ```
 
 Output:
@@ -122,7 +121,7 @@ Output:
 ```javascript
 [
   {
-    2
+    4
   }
 ]
 ```
@@ -132,8 +131,8 @@ Output:
 Removes recommended strain by strain id.
 
 Request:
-```
-/api/user/1/recommendation/1
+```javascript
+/api/user/1/recommendation/2
 ```
 
 Output:
