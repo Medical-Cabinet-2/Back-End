@@ -35,5 +35,8 @@
     "nodemon": "^2.0.2",
     "sqlite3": "^4.1.1",
     "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
